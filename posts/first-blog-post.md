@@ -8,8 +8,13 @@ disable_html_sanitization: true
 Hello, world!
 
 # **Week 1 of coding rabbit hole** 
-![midori...](/240306_week1/mi.png)
+## putting things inside the blog post (crying)
+
+![double scoop...](/240306_week1/mi.png)
 
 <iframe src="https://editor.p5js.org/NoaLwx/full/IaH4veEs5" width="100%" height="242px"></iframe>
 
-## putting things inside the blog post (crying)
+
+## trying different way of remaking goodbye farewell by Rafaël Rozendaal
+### i don't know know to make it liquify so i used random lines
+<iframe src="https://editor.p5js.org/NoaLwx/full/m_5UNaLnt" width="100%" height="500"></iframe>
