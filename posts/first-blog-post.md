@@ -17,4 +17,4 @@ Hello, world!
 
 ## trying different way of remaking goodbye farewell by Rafaël Rozendaal
 ### i don't know know to make it liquify so i used random lines
-<iframe src="https://editor.p5js.org/NoaLwx/full/m_5UNaLnt" width="100%" height="400"></iframe>
+<iframe src="https://editor.p5js.org/NoaLwx/full/m_5UNaLnt" width="100%" height="600"></iframe>
