@@ -1,12 +1,12 @@
 ---
-title: Creative Coding blog :33
+title: Creative Coding blog week 1:33
 published_at: 2024-03-06
 snippet: I cant code...
 ---
 
 Hello, world!
 
-# **Hi, this is the person who can't code** 
+# **Week 1 of coding rabbit hole** 
 ![midori...](/240306_week1/mi.png)
 
 ## This is h2
