@@ -7,6 +7,6 @@ snippet: I cant code...
 Hello, world!
 
 # **Hi, this is the person who can't code** 
-![midori...] (/240306_week1/Screenshot 2024-02-29 at 10.34.39 pm.png)
+![midori...](/240306_week1/mi.png)
 
 ## This is h2
