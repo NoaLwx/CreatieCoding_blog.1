@@ -10,6 +10,6 @@ Hello, world!
 # **Week 1 of coding rabbit hole** 
 ![midori...](/240306_week1/mi.png)
 
-<iframe src="https://editor.p5js.org/NoaLwx/full/IaH4veEs5" width="100%"></iframe>
+<iframe src="https://editor.p5js.org/NoaLwx/full/IaH4veEs5" width="100%" height="242px"></iframe>
 
 ## putting things inside the blog post (crying)
