@@ -1,15 +1,12 @@
 ---
-title: This is my first blog post!
-published_at: 2022-11-04T15:00:00.000Z
-snippet: This is an excerpt of my first blog post.
+title: Creative Coding blog :33
+published_at: 2024-03-06
+snippet: I cant code...
 ---
 
 Hello, world!
 
-# This is h1
+# **Hi, this is the person who can't code** 
+![midori...] (/240306_week1/Screenshot 2024-02-29 at 10.34.39 pm.png)
 
 ## This is h2
-
-_underline_
-
-**bold**
