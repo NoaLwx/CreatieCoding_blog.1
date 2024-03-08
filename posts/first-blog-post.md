@@ -49,6 +49,7 @@ I put the circle in as the moon but it didn't show up. At first, I thought it wa
 `It was the background on top of the moon`
 
 After removing the extra background, the result is kind of resemble the original art
+
 ![Final](/240306_week1/final.png)
 
 ### **_Result_**
