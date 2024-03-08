@@ -26,12 +26,12 @@ However, the animation for the water is way over my league,  so I decided to try
 ### 1. I don't know know to make it liquify so i used random generated lines
 #### Line codes
 ![Code I got from Happy Coding](/240306_week1/randomlinegeneratecode.png)
-https://happycoding.io/tutorials/p5js/for-loops/lines-silhouette
+
 
 Since the original code doesn't match with what the art looks like, I changed the variable in the code to make it looks more like water: changed the weight of the line, made the framerate faster, changd the maximum length of the line... 
 
 When i halved the size of the lines, it was on the wrong side.
-![wrong half](/240306_week1/wrong half.png)
+![wrong half](/240306_week1/wronghalf.png)
 
 I then moved the lines down half the height of the canvas with translation code.
 ![half](/240306_week1/half.png)
