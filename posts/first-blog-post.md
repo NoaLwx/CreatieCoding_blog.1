@@ -25,8 +25,9 @@ However, the animation for the water is way over my league,  so I decided to try
 
 ### 1. I don't know know to make it liquify so i used random generated lines
 #### Line codes
-![Code I got from Happy Coding](/240306_week1/random line generate code.png)
-(https://happycoding.io/tutorials/p5js/for-loops/lines-silhouette)
+![Code I got from Happy Coding](/240306_week1/randomlinegeneratecode.png)
+https://happycoding.io/tutorials/p5js/for-loops/lines-silhouette
+
 Since the original code doesn't match with what the art looks like, I changed the variable in the code to make it looks more like water: changed the weight of the line, made the framerate faster, changd the maximum length of the line... 
 
 When i halved the size of the lines, it was on the wrong side.
@@ -35,7 +36,7 @@ When i halved the size of the lines, it was on the wrong side.
 I then moved the lines down half the height of the canvas with translation code.
 ![half](/240306_week1/half.png)
 I also tried to make the line bounch but it didn't work.
-![Animation code](/240306_week1/making it bounce.png)
+![Animation code](/240306_week1/makingitbounce.png)
 
 #### The moon
 I put the circle in as the moon but it didn't show up. At first, I thought it was due to the wrong position (I put height*4 instead of height/4) but it still didn't show up.
