@@ -45,7 +45,7 @@ For the last part, I used arc to draw the highlight of the yolk.I couldn't figur
 
 ![highligh!!!!](/w2/highlight.png)
 
-<iframe src="https://editor.p5js.org/NoaLwx/full/hIllDNXOV" width=800 height=843></iframe>
+<iframe src="https://editor.p5js.org/NoaLwx/full/hIllDNXOV" width=300 height=343></iframe>
 
 
 ## Putting things into class
