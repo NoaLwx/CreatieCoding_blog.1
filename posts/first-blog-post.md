@@ -32,7 +32,7 @@ I also made another p5 sketch that changing the size like the initial sketch.
 
 <iframe src="https://editor.p5js.org/NoaLwx/full/Vcr-J_mLX" width=500 height=300></iframe>
 
-## Trying different way of remaking goodbye farewell by Rafaël Rozendaal
+## Remaking goodbye farewell by Rafaël Rozendaal
  By observing the website, I identified 2 element in this web art: `the moon` and `the moving light reflection on the water surface`.
 
 The moon is easy to code since it's just a circle in the middle of the width and around 3/4 up the height.
@@ -40,7 +40,7 @@ The moon is easy to code since it's just a circle in the middle of the width and
 However, the animation for the water is way over my league,  so I decided to try different approach.
 
 
-### 1. I don't know know to make it liquify so i used random generated lines
+### I don't know know to make it liquify so i used random generated lines
 #### Line codes
 
 ![Code I got from Happy Coding](/week1/random.png)
@@ -75,4 +75,3 @@ After removing the extra background, the result is kind of resemble the original
 ***
 
 
-### 2. Beizer
