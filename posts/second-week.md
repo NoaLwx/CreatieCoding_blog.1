@@ -1,7 +1,7 @@
 ---
 title: Creative Coding blog week 2 orz
 published_at: 2024-03-13
-snippet: What is even CLASSSSSAAAAAAAAAAAHHHH
+snippet: What even is CLASSSSSAAAAAAAAAAAHHHH
 disable_html_sanitization: true
 ---
 Crying.mp4
@@ -45,7 +45,7 @@ For the last part, I used arc to draw the highlight of the yolk.I couldn't figur
 
 ![highligh!!!!](/w2/highlight.png)
 
-<iframe src="https://editor.p5js.org/NoaLwx/full/hIllDNXOV" width=300 height=343></iframe>
+<iframe src="https://editor.p5js.org/NoaLwx/full/hIllDNXOV" width=400 height=443></iframe>
 
 
 ## Putting things into class
