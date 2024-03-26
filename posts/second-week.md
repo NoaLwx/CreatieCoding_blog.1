@@ -50,4 +50,4 @@ For the last part, I used arc to draw the highlight of the yolk.I couldn't figur
 
 ## Putting things into class
 
-I cant, i just cant, gave up.
+ill do this tmr
