@@ -72,7 +72,7 @@ There are 3 types of shape in my code: cat head, cat paw and fish. This goes alo
 I was trying to make a yarn shape but the bevel doesn't look that good so I scrapped it and went with the solid shapes.
 
 ![yarn](/w3/yarn.png)
-![strokes](/w3.stroke.png)
+![strokes](/w3/stroke.png)
 
 #### the result
 After making the codes for each shape through trials and errors, I filled the whole page to see if it's working
@@ -81,5 +81,5 @@ then added a border (I don't know why, I think it looks better with a border)
 ![border](/w3/border.png)
 
 
-<iframe src="https://editor.p5js.org/NoaLwx/full/2OjcK8hpd" width=300 height=348></iframe>
+<iframe src="https://editor.p5js.org/NoaLwx/full/2OjcK8hpd"></iframe>
 
