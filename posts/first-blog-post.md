@@ -1,5 +1,5 @@
 ---
-title: Creative Coding blog week 1 :33
+title: WEEK 1
 published_at: 2024-03-06
 snippet: I cant code...
 disable_html_sanitization: true

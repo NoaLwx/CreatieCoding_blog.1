@@ -1,5 +1,5 @@
 ---
-title: Creative Coding blog week 2 orz
+title: WEEK 2
 published_at: 2024-03-13
 snippet: What even is CLASSSSSAAAAAAAAAAAHHHH
 disable_html_sanitization: true

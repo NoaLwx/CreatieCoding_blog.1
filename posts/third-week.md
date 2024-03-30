@@ -1,5 +1,5 @@
 ---
-title: Creative Coding blog week 3 orz
+title: WEEK 3 
 published_at: 2024-03-26
 snippet: ueuueueueue (sound of me crying)
 disable_html_sanitization: true
