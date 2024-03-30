@@ -54,7 +54,7 @@ For the last part, I used arc to draw the highlight of the yolk.I couldn't figur
 To start it off, I put everything related to the faller class in to faller.js file
 
 ![1](/w2/faller1.png)
-![2](/w2/faller2.png)
+![2](/w2/faller.png)
 
 Then every code with faller. I changed 'faller' into 'this' since they are now in a class. 
 
@@ -72,3 +72,5 @@ fallers.forEach ((f, i)  => {
     redundant.forEach (n => this.splice (n, 1)) 
 ```
 so that the program know to push the f.draw insted of just fallers.forEach ((f, i). 
+
+***
