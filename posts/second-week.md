@@ -47,6 +47,28 @@ For the last part, I used arc to draw the highlight of the yolk.I couldn't figur
 
 <iframe src="https://editor.p5js.org/NoaLwx/full/hIllDNXOV" width=800 height=843></iframe>
 
+***
 
 ## Putting things into class
 
+To start it off, I put everything related to the faller class in to faller.js file
+
+![1](/w2/faller1.png)
+![2](/w2/faller2.png)
+
+Then every code with faller. I changed 'faller' into 'this' since they are now in a class. 
+
+Then I added 
+```javascript
+  fallers.push (new Faller (bg))
+```
+to push the file from faller.js into the sketch.js
+
+I also changed a few line like
+```javascript
+fallers.forEach ((f, i)  => {
+    f.draw()
+    if(f.phase > 1) redundant.push(i)
+    redundant.forEach (n => this.splice (n, 1)) 
+```
+so that the program know to push the f.draw insted of just fallers.forEach ((f, i). 

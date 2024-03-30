@@ -30,6 +30,7 @@ Effective complexity is something that is coherence, having a set action/form bu
 
 ![wires/cables](/w3/effcom.png)
 
+***
 
 ## So how cute can be intergrating into effective complexity
 
