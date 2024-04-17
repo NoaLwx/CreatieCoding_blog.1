@@ -5,7 +5,7 @@ snippet: c2.js and three.js example
 disable_html_sanitization: true
 ---
 
-<script src="./script/c2.js"></script>
+<script src="/script/c2.js"></script>
 <!-- <script src="/script/p5.min.js"></script> -->
 
 <canvas id="c2"></canvas>
