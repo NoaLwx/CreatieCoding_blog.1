@@ -75,72 +75,123 @@ disable_html_sanitization: true
 
 ```html
 <script type="module">
+  //gabbing the canvas element from the document
   const cnv = document.getElementById(`glitch_self_portrait`);
+
+  //sizing it to have a nice size
   cnv.width = cnv.parentNode.scrollWidth;
   cnv.height = (cnv.width * 9) / 16;
+
+  //setting the background colour
   cnv.style.backgroundColor = `deeppink`;
 
+  //getting canvas context
   const ctx = cnv.getContext(`2d`);
 
-  //define the image using let function
+  //instatiating variable for img_data
   let img_data;
 
-  //draw the image pixel by pixel till reaching the ful size
+  //defining a function that draws the image to the canvas. Arrow is a defining a function.
   const draw = (i) => ctx.drawImage(i, 0, 0, cnv.width, cnv.height);
 
-  //load the image in to achieve the glitch
+  //creating a new image element
   const img = new Image();
+
+  //defining function to execute upon loading image file
   img.onload = () => {
+    //resizing th height of the canvas
     cnv.height = cnv.width * (img.height / img.width);
+
+    // drawing the image
     draw(img);
+
+    // storing the image data as a string in img_data
     img_data = cnv.toDataURL("image/jpeg");
+
+    // call the glitch function
     add_glitch();
   };
 
-  //image source
+  // give filepath to image element
   img.src = `/w5/cat.jpg`;
 
-  //make the variable an integer
+  // defining a function that returns a random value that is an integer between the zero and the max
   const rand_int = (max) => Math.floor(Math.random() * max);
 
-  //create the glitch effect using slice to remove the pixels randomly
+  // defining  a recursive function, taking the data as a string
   const glitchify = (data, chunk_max, repeats) => {
+    // random multiple of 4 between 0 and chunk_max
     const chunk_size = rand_int(chunk_max / 4) * 4;
+
+    // random position in the data between 24 and chunk_size
     const i = rand_int(data.length - 24 - chunk_size) + 24;
+
+    // grabbing all the data before the random position
     const front = data.slice(0, i);
+
+    // leaving a gap the size of chunk_size
+    // grabbing the rest of the data
     const back = data.slice(i + chunk_size, data.length);
+
+    // putting the two pieces back together
+    // leaving out a chunk
     const result = front + back;
+
+    // ternary operator (condition ? exprIfTrue : exprIfFalse). if this is = 0 -> return the first variable
+    //otherwise call itself again with the repeat
     return repeats == 0 ? result : glitchify(result, chunk_max, repeats - 1);
   };
 
-  //creating glitch array
+  // instatiating an empty array
   const glitch_arr = [];
 
+  // defining function that adds a glitch image
+  // to the glitch_arr array
   const add_glitch = () => {
+    //make new image element
     const i = new Image();
+
+    // define function that execute when image recieves its data
     i.onload = () => {
+      // push the image into the glitch_arr array
       glitch_arr.push(i);
+
+      // call itself until there are 12 glitched images
       if (glitch_arr.length < 12) add_glitch();
+      //once there is 12 images, start animating
       else draw_frame();
     };
+
+    //max_chunk is 96, and leaving 6 gaps
     i.src = glitchify(img_data, 96, 6);
   };
 
-  //if it's not glitching, draw the image normally.
+  // instantiate variable to keep track of the glitch state
   let is_glitching = false;
+
+  // keep track of whihc glitch image from the array we are using
   let glitch_i = 0;
 
   const draw_frame = () => {
+    // check to see if we are glitching
+    // if so, draw the glitch image from the array
     if (is_glitching) draw(glitch_arr[glitch_i]);
+    // otherwise draw the regular image
     else draw(img);
 
+    // probability weightings for starting and stopping the glitch
     const prob = is_glitching ? 0.05 : 0.02;
+
+    // if random is less than weight value
     if (Math.random() < prob) {
+      // choose a random glitch image index
       glitch_i = rand_int(glitch_arr.length);
+
+      //flip the state of is_glitching
       is_glitching = !is_glitching;
     }
 
-    //draw function
+    // call the next animation frame
     requestAnimationFrame(draw_frame);
   };
 </script>
