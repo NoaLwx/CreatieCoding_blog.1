@@ -1,189 +1,70 @@
 ---
-title: WEEK 6
-published_at: 2024-04-16
-snippet: Glitch Art
+title: WEEK 6 ASCII
+published_at: 2024-04-17
+snippet: c2.js and three.js example
 disable_html_sanitization: true
 ---
 
-<script src="/script/three.min.85.js"></script>
+<div id="ascii_div"></div>
 
-<canvas id="container"></canvas>
+<script type="module">
+   const stream = await navigator.mediaDevices.getUserMedia ({ 
+      audio: false,
+      video: true,
+      facingMode: `user`,
+   })
 
-<script>
-'use strict'
-var container, camera, scene, renderer, mesh, mesh01;
+   const videoTracks = await stream.getVideoTracks ()
+   console.log (`Using video device: ${ videoTracks[0].label }`)
 
-init();
-animate();
-//--------
+   const video = document.createElement (`video`)
+   video.srcObject = stream
 
-function init() {
+   // wait for the video to play then execute the code
+   await video.play ()
 
-	container = document.getElementById( 'container' );
+   const cnv = document.createElement (`canvas`)
+   cnv.width  = 64
+   cnv.height = cnv.width * video.videoHeight / video.videoWidth
 
-	camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 3500 );
-  	camera.position.y = 50;
-	camera.position.z = 500;
+   const div = document.getElementById (`ascii_div`)
+   div.style.fontFamily = `monospace`
+   div.style.textAlign = `center`
 
-	scene = new THREE.Scene();
-	
-	scene.add( new THREE.AmbientLight( 0x444444 ) );
-	
-	renderer = new THREE.WebGLRenderer( { antialias: false } );
-	
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setClearColor( 0x888888, 1 );	
+   const ctx = cnv.getContext (`2d`)
 
-	container.appendChild( renderer.domElement );
+    //const chars = "⠿⠾⠽⠼⠼⠼⠹⠸⠷⠶⠵⠴⠴⠲⠱⠰⠯⠮⠭⠬⠄⠃⠂⠁⠀"
+    const chars = "abcdefghijklmnop"
 
-	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	light1.position.set( 1, 1, 1 );
-	scene.add( light1 );
 
-	var light2 = new THREE.DirectionalLight( 0xffffff, 1.5 );
-	light2.position.set( 0, -1, 0 );
-	scene.add( light2 );
+   const draw_frame = async () => {
 
-	var triangles = 2;
+      ctx.save ()
+      ctx.scale (-1, 1)
+      ctx.drawImage (video, -cnv.width, 0, cnv.width, cnv.height)
+      ctx.restore ()
 
-	var geometry = new THREE.BufferGeometry();
+      const pixels = await ctx.getImageData (0, 0, cnv.width, cnv.height).data
 
-	var positions = new Float32Array( triangles * 3 * 3 );  // buffer arrray, position of vertices
-	var colors = new Float32Array( triangles * 3 * 3 );		// buffer arrray, vertexColors
+      let ascii_img = ``
 
-		// 4 positions  ...
-		
-		var ax = 0;
-		var ay = 0;
-		var az = 0;
+      for (let y = 0; y < cnv.height; y += 2) {
+         for (let x = 0; x < cnv.width; x++) {
+            const i = (y * cnv.width + x) * 4
+            const r = pixels[i]
+            const g = pixels[i + 1]
+            const b = pixels[i + 2]
+            const br = (r * g * b / 16581375) ** 0.1
+            const char_i = Math.floor (br * chars.length)
+            ascii_img += chars[char_i]
+         }
+         ascii_img += `\n`
+      }
 
-		var bx = 100;
-		var by = 0;
-		var bz = 100;
+      div.innerText = ascii_img
 
-		var cx = 0;
-		var cy = 0;
-		var cz = 100;
-  
-  		var dx = 0;
-		var dy = 100;
-		var dz = 50;
+      requestAnimationFrame (draw_frame)
+   }
 
-		// ... some positions are needed several times
-		
-		// first triangle
-		positions[ 0 ] = ax;
-		positions[ 1 ] = ay;
-		positions[ 2 ] = az;
-
-		positions[ 3 ] = bx;
-		positions[ 4 ] = by;
-		positions[ 5 ] = bz;
-
-		positions[ 6 ] = cx;
-		positions[ 7 ] = cy;
-		positions[ 8 ] = cz;
-		
-      	// second triangle
-        positions[ 9 ] = ax;
-		positions[ 10 ] = ay;
-		positions[ 11 ] = az;
-
-		positions[ 12 ] = bx;
-		positions[ 13 ] = by;
-		positions[ 14 ] = bz;
-
-		positions[ 15 ] = dx;
-		positions[ 16 ] = dy;
-		positions[ 17 ] = dz;
-      
-		// vertex colors
-		
-		// first triangle
-		colors[ 0]  = 0.9;
-		colors[ 1 ] = 0.9;
-		colors[ 2 ] = 0.0;
-
-		colors[ 3 ] = 0.9;
-		colors[ 4 ] = 0.9;
-		colors[ 5 ] = 0.0;
-
-		colors[ 6 ] = 0.9;
-		colors[ 7 ] = 0.9;
-		colors[ 8 ] = 0.0;
-		
-  		// second triangle
-  		colors[ 9]  = 1;
-		colors[ 10 ] = 0;
-		colors[ 11 ] = 0;
-
-		colors[ 12 ] = 0;
-		colors[ 13 ] = 1;
-		colors[ 14 ] = 0;
-
-		colors[ 15 ] = 0;
-		colors[ 16 ] = 0;
-		colors[ 17 ] = 1;
-
-	geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ));
-	geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
-	var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, side: THREE.DoubleSide } );
-	
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
-	
-	// -------
-	
-	var uvTex	= new THREE.TextureLoader().load( "uvgrid01.png" );
-	var material01 = new THREE.MeshBasicMaterial( {  map: uvTex,   side: THREE.DoubleSide, } );	//   uv grid
-	
-	var geometry01 = new THREE.BufferGeometry();
-	
-	var vertices = new Float32Array( [
-	   -50, -50,  50,
-		50, -50,  50,
-		50,  50,  50,
-	
-		 50,  50, 50,
-		-50,  50, 50,
-		-50, -50, 50
-	] );
-	var uvs = new Float32Array( [
-		0,   0,
-		1,   0, 
-		1,   1, 
-	
-		1,   1, 
-		0,   1,
-		0,   0
-	] );
-	
-	geometry01.addAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-	geometry01.addAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
-	mesh01 = new THREE.Mesh( geometry01, material01 );
-	
-	scene.add( mesh01 );
-
-	window.addEventListener( 'resize', onWindowResize, false );
-
-}
-
-function onWindowResize() {
-
-	camera.aspect = window.innerWidth / window.innerHeight;
-	renderer.setSize( window.innerWidth, window.innerHeight );
-
-}
-
-function animate() {
-
-	requestAnimationFrame( animate );		
-	var time = Date.now() * 0.001;
-	mesh.rotation.y = time;
-	mesh01.rotation.z = time;
-	renderer.render( scene, camera );
-
-}
-
+   draw_frame ()
 </script>
