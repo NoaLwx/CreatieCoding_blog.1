@@ -15,6 +15,7 @@ var container, camera, scene, renderer, mesh, mesh01;
 
 init();
 animate();
+//--------
 
 function init() {
 
@@ -29,6 +30,7 @@ function init() {
 	scene.add( new THREE.AmbientLight( 0x444444 ) );
 	
 	renderer = new THREE.WebGLRenderer( { antialias: false } );
+	
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.setClearColor( 0x888888, 1 );	
@@ -41,122 +43,128 @@ function init() {
 
 	var light2 = new THREE.DirectionalLight( 0xffffff, 1.5 );
 	light2.position.set( 0, -1, 0 );
-	scene.add( light2 );	
+	scene.add( light2 );
+
+	var triangles = 2;
 
 	var geometry = new THREE.BufferGeometry();
 
-	var positions = new Float32Array( 4 * 3 );  // buffer arrray, position of 4 vertices
-	var indices = 	new Uint32Array( 2 * 3 );  	// indices for 2 faces
-	var colors = 	new Float32Array( 4 * 3 );	// buffer arrray, 4 vertexColors * 3 color channels  
+	var positions = new Float32Array( triangles * 3 * 3 );  // buffer arrray, position of vertices
+	var colors = new Float32Array( triangles * 3 * 3 );		// buffer arrray, vertexColors
 
-		// 4 positions with 3 coordinates
+		// 4 positions  ...
 		
-		// vertex 0
-		positions[ 0 ] = 0;
-		positions[ 1 ] = 0;
-		positions[ 2 ] = 0;
-		
-		// vertex 1
-		positions[ 3 ] = 100;
-		positions[ 4 ] = 0;
-		positions[ 5 ] = 100;
-		
-		// vertex 2
-		positions[ 6 ] = 0;
-		positions[ 7 ] = 0;
-		positions[ 8 ] = 100;
-		
- 		// vertex 3     
-		positions[ 9 ] = 0;
-		positions[ 10 ] = 100;
-		positions[ 11 ] = 50;
-		
-		// 2 faces with 3 vertices indices 
-		
-		// face 0: vertices indices 0, 1, 2
-		indices[0] = 0;  
-		indices[1] = 1;
-		indices[2] = 2;
-		
-		// face 1 vertices indices 0, 1, 3
-		indices[3] = 0;
-		indices[4] = 1;
-		indices[5] = 3;
+		var ax = 0;
+		var ay = 0;
+		var az = 0;
 
-		// colors, 3 color channels to each vertex
+		var bx = 100;
+		var by = 0;
+		var bz = 100;
+
+		var cx = 0;
+		var cy = 0;
+		var cz = 100;
+  
+  		var dx = 0;
+		var dy = 100;
+		var dz = 50;
+
+		// ... some positions are needed several times
 		
-		// >> vertex 0
+		// first triangle
+		positions[ 0 ] = ax;
+		positions[ 1 ] = ay;
+		positions[ 2 ] = az;
+
+		positions[ 3 ] = bx;
+		positions[ 4 ] = by;
+		positions[ 5 ] = bz;
+
+		positions[ 6 ] = cx;
+		positions[ 7 ] = cy;
+		positions[ 8 ] = cz;
+		
+      	// second triangle
+        positions[ 9 ] = ax;
+		positions[ 10 ] = ay;
+		positions[ 11 ] = az;
+
+		positions[ 12 ] = bx;
+		positions[ 13 ] = by;
+		positions[ 14 ] = bz;
+
+		positions[ 15 ] = dx;
+		positions[ 16 ] = dy;
+		positions[ 17 ] = dz;
+      
+		// vertex colors
+		
+		// first triangle
 		colors[ 0]  = 0.9;
-		colors[ 1 ] = 0;
-		colors[ 2 ] = 0;
+		colors[ 1 ] = 0.9;
+		colors[ 2 ] = 0.0;
+
+		colors[ 3 ] = 0.9;
+		colors[ 4 ] = 0.9;
+		colors[ 5 ] = 0.0;
+
+		colors[ 6 ] = 0.9;
+		colors[ 7 ] = 0.9;
+		colors[ 8 ] = 0.0;
 		
-		// >> vertex 1
-		colors[ 3 ] = 0;
-		colors[ 4 ] = 1;
-		colors[ 5 ] = 0;
-		
-		// >> vertex 2
-		colors[ 6 ] = 1;
-		colors[ 7 ] = 0;
-		colors[ 8 ] = 1;
-		
- 		// >> vertex 3
-  		colors[ 9]  = 0.8;
-		colors[ 10 ] = 0.9;
+  		// second triangle
+  		colors[ 9]  = 1;
+		colors[ 10 ] = 0;
 		colors[ 11 ] = 0;
-		
-	geometry.setIndex( new THREE.BufferAttribute( indices, 1 ) );
+
+		colors[ 12 ] = 0;
+		colors[ 13 ] = 1;
+		colors[ 14 ] = 0;
+
+		colors[ 15 ] = 0;
+		colors[ 16 ] = 0;
+		colors[ 17 ] = 1;
+
 	geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ));
 	geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
-	
 	var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, side: THREE.DoubleSide } );
-
+	
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
 	
-	// -----------
+	// -------
 	
-	var uvTex		= new THREE.TextureLoader().load( "/static/w6/uvgrid01.png" );
-	var material01	= new THREE.MeshBasicMaterial( {  map: uvTex,   side: THREE.DoubleSide, } );	//   uv grid
+	var uvTex	= new THREE.TextureLoader().load( "uvgrid01.png" );
+	var material01 = new THREE.MeshBasicMaterial( {  map: uvTex,   side: THREE.DoubleSide, } );	//   uv grid
 	
-	var geometry01	= new THREE.BufferGeometry();
+	var geometry01 = new THREE.BufferGeometry();
 	
 	var vertices = new Float32Array( [
-		
-		// 4 vertices
-	   	-50, -50, 50,
-		 50, -50, 50,
+	   -50, -50,  50,
+		50, -50,  50,
+		50,  50,  50,
+	
 		 50,  50, 50,
 		-50,  50, 50,
-		
+		-50, -50, 50
 	] );
-	
-	var indices = new Uint32Array( [
-	
-		// 2 faces
-		0, 1, 2,
-		2, 3, 0
-	
-	]  );  	
-	
 	var uvs = new Float32Array( [
-	
-		// uvs to vertices
 		0,   0,
 		1,   0, 
 		1,   1, 
-		0,   1, 
-		
+	
+		1,   1, 
+		0,   1,
+		0,   0
 	] );
 	
-	geometry01.setIndex( new THREE.BufferAttribute( indices, 1 ) );
 	geometry01.addAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
 	geometry01.addAttribute( 'uv', new THREE.BufferAttribute( uvs, 2 ) );
-	
 	mesh01 = new THREE.Mesh( geometry01, material01 );
 	
 	scene.add( mesh01 );
-	
+
 	window.addEventListener( 'resize', onWindowResize, false );
 
 }
