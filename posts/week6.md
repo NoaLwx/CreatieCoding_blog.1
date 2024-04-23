@@ -8,12 +8,19 @@ disable_html_sanitization: true
 <div id="ascii_div"></div>
 
 <script type="module">
+
+    // wait for navigator media to happen then execute the code
    const stream = await navigator.mediaDevices.getUserMedia ({ 
+
+    // no audio
       audio: false,
+    // allow visual
       video: true,
+    // 
       facingMode: `user`,
    })
 
+    // 
    const videoTracks = await stream.getVideoTracks ()
    console.log (`Using video device: ${ videoTracks[0].label }`)
 
@@ -33,21 +40,25 @@ disable_html_sanitization: true
 
    const ctx = cnv.getContext (`2d`)
 
+    // different characters for the input
     //const chars = "⠿⠾⠽⠼⠼⠼⠹⠸⠷⠶⠵⠴⠴⠲⠱⠰⠯⠮⠭⠬⠄⠃⠂⠁⠀"
     const chars = "abcdefghijklmnop"
 
 
    const draw_frame = async () => {
 
+    // 
       ctx.save ()
       ctx.scale (-1, 1)
       ctx.drawImage (video, -cnv.width, 0, cnv.width, cnv.height)
       ctx.restore ()
 
+    // 
       const pixels = await ctx.getImageData (0, 0, cnv.width, cnv.height).data
 
       let ascii_img = ``
 
+    // getting data to transform into the ascii
       for (let y = 0; y < cnv.height; y += 2) {
          for (let x = 0; x < cnv.width; x++) {
             const i = (y * cnv.width + x) * 4
