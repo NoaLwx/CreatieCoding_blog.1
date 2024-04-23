@@ -41,8 +41,8 @@ disable_html_sanitization: true
    const ctx = cnv.getContext (`2d`)
 
     // different characters for the input
-    //const chars = "⠿⠾⠽⠼⠼⠼⠹⠸⠷⠶⠵⠴⠴⠲⠱⠰⠯⠮⠭⠬⠄⠃⠂⠁⠀"
-    const chars = "abcdefghijklmnop"
+    const chars = "⠿⠾⠽⠼⠼⠼⠹⠸⠷⠶⠵⠴⠴⠲⠱⠰⠯⠮⠭⠬⠄⠃⠂⠁⠀"
+    // const chars = "abcdefghijklmnop"
 
 
    const draw_frame = async () => {
