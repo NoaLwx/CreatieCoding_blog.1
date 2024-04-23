@@ -13,18 +13,6 @@ disable_html_sanitization: true
 <script>
 import * as THREE from "/script/three.min.85.js"
 import { OrbitControls } from "/script/OrbitControls.js"
-import {
-    EventDispatcher,
-    MOUSE,
-    Quaternion,
-    Spherical,
-    TOUCH,
-    Vector2,
-    Vector3,
-    Plane,
-    Ray,
-    MathUtils
-} from '/script/three.min.85.js'
 
 'use strict'
 var container, camera, scene, renderer, mesh, mesh01;
