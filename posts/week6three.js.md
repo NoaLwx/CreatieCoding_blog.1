@@ -1,18 +1,19 @@
 ---
-title: WEEK 6 THREE.JS
-published_at: 2024-04-16
-snippet: Glitch Art
+title: WEEK 6 Three js homework
+published_at: 2024-04-24
+snippet: Three js spinning
 disable_html_sanitization: true
 ---
 
-<script src="/script/three.min.85.js"></script>
-<script src="/script/OrbitControls.js"></script>
+<script src="/script/three/three.min.85.js"></script>
+<!-- <script src="/script/three/OrbitControls.js"></script> -->
 
 <canvas id="container"></canvas>
 
-<script>
-import * as THREE from "/script/three.min.85.js"
-import { OrbitControls } from "/script/OrbitControls.js"
+<script type="module">
+
+// import * as THREE from "/script/three/three.min.85.js"
+// import { OrbitControls } from "/script/three/OrbitControls.js"
 
 'use strict'
 var container, camera, scene, renderer, mesh, mesh01;
@@ -139,7 +140,7 @@ function init() {
 	
 	// -------
 	
-	var uvTex	= new THREE.TextureLoader().load( "uvgrid01.png" );
+	var uvTex	= new THREE.TextureLoader().load( "/w6/uvgrid01.png" );
 	var material01 = new THREE.MeshBasicMaterial( {  map: uvTex,   side: THREE.DoubleSide, } );	//   uv grid
 	
 	var geometry01 = new THREE.BufferGeometry();

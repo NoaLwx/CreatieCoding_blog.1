@@ -1,7 +1,7 @@
 ---
 title: WEEK 4
 published_at: 2024-04-9
-snippet: Glitch Art
+snippet: Canvas API
 disable_html_sanitization: true
 ---
 
@@ -11,12 +11,11 @@ disable_html_sanitization: true
 
 <canvas id="canvas"></canvas>
 
-<script>
+<script type="module">
 const cnv  = document.getElementById ('canvas')
 cnv.width = 400
 cnv.height = 400
 const ctx = cnv.getContext ('2d')
-document.body.appendChild (cnv)
 
 ctx.fillStyle = `pink`
 ctx.fillRect (0, 0, cnv.width, cnv.height)
@@ -42,9 +41,9 @@ requestAnimationFrame (draw_frame)
 
 ## Clicking
 
-<canvas id=onclick_example></canvas>
+<canvas id="onclick_example"></canvas>
 
-<script type=module>
+<script type="module">
     const cnv = document.getElementById (`onclick_example`)
     cnv.width = cnv.parentNode.scrollWidth
     cnv.height = cnv.width * 9 / 16

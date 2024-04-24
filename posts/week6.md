@@ -1,7 +1,7 @@
 ---
 title: WEEK 6 ASCII
 published_at: 2024-04-17
-snippet: c2.js and three.js example
+snippet: ASCII Camera
 disable_html_sanitization: true
 ---
 

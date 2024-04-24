@@ -1,5 +1,5 @@
 ---
-title: WEEK 5
+title: WEEK 5 CHAOS
 published_at: 2024-04-16
 snippet: Zany
 disable_html_sanitization: true
