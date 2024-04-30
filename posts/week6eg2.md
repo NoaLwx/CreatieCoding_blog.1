@@ -12,7 +12,7 @@ disable_html_sanitization: true
 <canvas id="circle"></canvas>
 
 <script>
-    const renderer = new c2.Renderer(document.getElementById('circle'));
+const renderer = new c2.Renderer(document.getElementById('circle'));
 resize();
 
 renderer.background('#cccccc');
