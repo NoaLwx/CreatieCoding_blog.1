@@ -1,7 +1,7 @@
 ---
 title: WEEK 3
 published_at: 2024-03-26
-snippet: ueuueueueue (sound of me crying)
+snippet: What is cute?
 disable_html_sanitization: true
 ---
 

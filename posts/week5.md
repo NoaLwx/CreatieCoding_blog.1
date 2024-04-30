@@ -252,80 +252,79 @@ disable_html_sanitization: true
 
 ```html
 <script type="module">
-    import { PixelSorter } from "/script/pixel_sort.js";'
+  import { PixelSorter } from "/script/pixel_sort.js";
 
-   // gabbing the canvas element from the document
-    const cnv = document.getElementById(`pixel_sort`);
+  // grabbing the canvas element from the document
+  const cnv = document.getElementById(`pixel_sort`);
 
   // sixing the canvas to have a nice size
-    cnv.width = cnv.parentNode.scrollWidth;
-    cnv.height = (cnv.width * 9) / 16;
+  cnv.width = cnv.parentNode.scrollWidth;
+  cnv.height = (cnv.width * 9) / 16;
 
   // loading the context in
-    const ctx = cnv.getContext(`2d`);
+  const ctx = cnv.getContext(`2d`);
 
   // creating a new sorter element
-    const sorter = new PixelSorter(ctx);
+  const sorter = new PixelSorter(ctx);
 
-    // load the image in
-    const img = new Image();
+  // load the image in
+  const img = new Image();
 
   //defining function to execute upon loading image file
-    img.onload = () => {
-      // sizing the canvas to the image heigh
-      cnv.height = cnv.width * (img.height / img.width);
-      //sizing and placing draw function in the canvas
-      ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
+  img.onload = () => {
+    // sizing the canvas to the image heigh
+    cnv.height = cnv.width * (img.height / img.width);
+    //sizing and placing draw function in the canvas
+    ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
 
     // calling the sorter function
-      sorter.init();
+    sorter.init();
 
     // draw image
-      draw_frame();
-    };
+    draw_frame();
+  };
 
-    // give filepath to image element
-    img.src = `/w5/427.jpg`;
+  // give filepath to image element
+  img.src = `/w5/427.jpg`;
 
-    //reseting the frame count to 0 (the start)
-    let frame_count = 0;
+  //reseting the frame count to 0 (the start)
+  let frame_count = 0;
 
-    // start to draw frame
-    const draw_frame = () => {
-
+  // start to draw frame
+  const draw_frame = () => {
     // sizing and placing draw function in the canvas
-      ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
+    ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
 
     //define function for sig
-      let sig = Math.cos((frame_count * 2 * Math.PI) / 500);
+    let sig = Math.cos((frame_count * 2 * Math.PI) / 500);
 
-      // sizing the sorter to half the width and half the height of the canvas
-      const mid = {
-        x: cnv.width / 2,
-        y: cnv.height / 2,
-      };
-
-      // dimension of the pixelsorter getting bigger and bigger
-      // the Math.floor function keeping the number being integer
-      const dim = {
-        x: Math.floor((sig + 3) * (cnv.width / 6)) + 1,
-        y: Math.floor((sig + 1) * (cnv.height / 6)) + 1,
-      };
-
-      // dimension of the pixelsorter getting smaller and smaller
-      const pos = {
-        x: Math.floor(mid.x - dim.x / 2),
-        y: Math.floor(mid.y - dim.y / 2),
-      };
-
-      // calling the sorter glitch function
-      sorter.glitch(pos, dim);
-
-      // increasing  frame
-      frame_count++;
-
-      // drawing the glitch
-      requestAnimationFrame(draw_frame);
+    // sizing the sorter to half the width and half the height of the canvas
+    const mid = {
+      x: cnv.width / 2,
+      y: cnv.height / 2,
     };
+
+    // dimension of the pixelsorter getting bigger and bigger
+    // the Math.floor function keeping the number being integer
+    const dim = {
+      x: Math.floor((sig + 3) * (cnv.width / 6)) + 1,
+      y: Math.floor((sig + 1) * (cnv.height / 6)) + 1,
+    };
+
+    // dimension of the pixelsorter getting smaller and smaller
+    const pos = {
+      x: Math.floor(mid.x - dim.x / 2),
+      y: Math.floor(mid.y - dim.y / 2),
+    };
+
+    // calling the sorter glitch function
+    sorter.glitch(pos, dim);
+
+    // increasing  frame
+    frame_count++;
+
+    // drawing the glitch
+    requestAnimationFrame(draw_frame);
+  };
 </script>
 ```

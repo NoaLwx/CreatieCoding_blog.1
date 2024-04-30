@@ -1,7 +1,7 @@
 ---
 title: WEEK 7 Particle Example
 published_at: 2024-04-24
-snippet: Threejs example
+snippet: Threejs particle example
 disable_html_sanitization: true
 ---
 

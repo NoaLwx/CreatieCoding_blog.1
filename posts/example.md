@@ -1,6 +1,6 @@
 ---
 title: Assignment 2
-published_at: 2024-04-28
+published_at: 2024-05-05
 snippet: Threejs example
 disable_html_sanitization: true
 ---
@@ -31,48 +31,26 @@ disable_html_sanitization: true
   let frame_count = 0;
   const draw_frame = () => {
     ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
-  }
+  
+    let sig = Math.cos((frame_count * 2 * Math.PI) / 500);
 
-  palette = [
-    '#264653', '#2a9d8f',
-    '#e9c46a', '#f4a261',
-    '#e76f51'
-  ];
+    const mid = {
+      x: cnv.width / 2,
+      y: cnv.height / 2,
+    };
+    const dim = {
+      x: Math.floor((sig + 3) * (cnv.width / 6)) + 1,
+      y: Math.floor((sig + 1) * (cnv.height / 6)) + 1,
+    };
+    const pos = {
+      x: Math.floor(mid.x - dim.x / 2),
+      y: Math.floor(mid.y - dim.y / 2),
+    };
 
+    sorter.glitch(pos, dim);
 
-function draw() {
-  for (let x = 0; x < width; x++) {
-    const imgColor = img.get(x, y);
-    const paletteColor = getPaletteColor(imgColor);
-    stroke(paletteColor);
-    point(x, y);
-  }
+    frame_count++;
+    requestAnimationFrame(draw_frame);
+ };
 
-}
-
-function getPaletteColor(imgColor) {
-  const imgR = red(imgColor);
-  const imgG = green(imgColor);
-  const imgB = blue(imgColor);
-
-  let minDistance = 999999;
-  let targetColor;
-
-  for (const c of palette) {
-    const paletteR = red(c);
-    const paletteG = green(c);
-    const paletteB = blue(c);
-
-    const colorDistance =
-      dist(imgR, imgG, imgB,
-           paletteR, paletteG, paletteB);
-
-    if (colorDistance < minDistance) {
-      targetColor = c;
-      minDistance = colorDistance;
-    }
-  }
-
-  return targetColor;
-  };
 </script>

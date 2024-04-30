@@ -1,7 +1,7 @@
 ---
 title: WEEK 7 Audio
 published_at: 2024-04-24
-snippet: Threejs example
+snippet: Adding audio
 disable_html_sanitization: true
 ---
 
