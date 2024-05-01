@@ -1,6 +1,6 @@
 ---
 title: WEEK 6 Wall
-published_at: 2024-04-24
+published_at: 2024-04-17
 snippet: Three js object
 disable_html_sanitization: true
 ---

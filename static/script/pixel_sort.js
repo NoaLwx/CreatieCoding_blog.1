@@ -24,6 +24,7 @@ const quicksort = a => {
        this.width = this.ctx.canvas.width
        this.height = this.ctx.canvas.height
        this.img_data = this.ctx.getImageData (0, 0, this.width, this.height).data
+       console.log (this.img_data)
     }
  
  

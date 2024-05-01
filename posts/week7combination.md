@@ -5,6 +5,8 @@ snippet: Combination of c2.js and ascii
 disable_html_sanitization: true
 ---
 
+## Combination of ascii and c2.js
+
 <script src="/script/c2.js"></script>
 
 <canvas id="c2"></canvas>
@@ -201,3 +203,7 @@ renderer.draw(() => {
 
 </script>
 ```
+
+## Why does combining ideas / libraries seem to make things more aesthetically chaotic?
+
+Each idea and library has their own rules and pattern, they have their own effective complexity rules, so when you combine them together, they might intertwine or even crash with each other, creating a chaotic aesthetic.
