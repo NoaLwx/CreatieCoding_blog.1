@@ -8,71 +8,67 @@ disable_html_sanitization: true
 <canvas id="example"></canvas>
 
 <script type="module">
- import { PixelSorter } from "/script/pixel_sort.js";
- 
+
+
   const cnv = document.getElementById(`example`);
+  // cnv.width = 500;
   cnv.width = cnv.parentNode.scrollWidth;
   cnv.height = (cnv.width * 9) / 16;
 
   const ctx = cnv.getContext(`2d`);
 
-  const sorter = new PixelSorter(ctx);
-
   const img = new Image();
   img.onload = () => {
     cnv.height = cnv.width * (img.height / img.width);
     ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
-    sorter.init();
-    // draw_frame();
+    window.imageData = ctx.getImageData (0, 0, cnv.width, cnv.height);
+    // sortPixels();
   };
 
-  img.src = `/w5/catnada.png`;
-  let frame_count = 0;
-  const draw_frame = () => {
-    ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
-  }
 
-  // function sorter_glitch () {
-  //   let sig = Math.cos((frame_count * 2 * Math.PI) / 500);
+img.src = `/w5/catnada.png`;
 
-  //   const mid = {
-  //     x: cnv.width / 2,
-  //     y: cnv.height / 2,
-  //   };
-  //   const dim = {
-  //     x: Math.floor((sig + 3) * (cnv.width / 6)) + 1,
-  //     y: Math.floor((sig + 1) * (cnv.height / 6)) + 1,
-  //   };
-  //   const pos = {
-  //     x: Math.floor(mid.x - dim.x / 2),
-  //     y: Math.floor(mid.y - dim.y / 2),
-  //   };
-  // }
-      
+function randNumber (min,max){
+  return Math.random() * (max - min +1) + min;
+}
 
-  cnv.onclick = () => {
-    let sig = Math.cos((frame_count * 2 * Math.PI) / 500);
-
-    const mid = {
-      x: cnv.width / 2,
-      y: cnv.height / 2,
-    };
+function sortPixels(e) {
+  const pixels = imageData.data;
+  
+  let areaX = e.clientX; // Current mouse X position
+  let areaY = e.clientY; // Current mouse Y position
+  let areaWidth = randNumber (20,50); // Width of the area
+  let areaHeight = randNumber (100,200); // Height of the area
    
-    const dim = {
-      x: Math.floor((sig + 3) * (cnv.width / 6)) + 1,
-      y: Math.floor((sig + 1) * (cnv.height / 6)) + 1,
-    };
+  // Calculate the start and end indices for x and y
+  let startX = areaX;
+  let startY = areaY - 200;
+  let endX = areaX + areaWidth;
+  let endY = areaY + areaHeight;
 
-    const pos = {
-      x: Math.floor(mid.x - dim.x / 2),
-      y: Math.floor(mid.y - dim.y / 2),
-    };
+  for (let y = startY; y < endY; y++){
+    for (let x = startX ; x < endX; x++){
+     const index = (y * cnv.width + x) * 4;
+     const brightness = pixels[index] + pixels[index + 1] + pixels[index + 2];
 
-    sorter.glitch (pos,dim);
+// Get the brightness of the pixel below
+ if (y + 1 < endY) {
+  const indexBelow = ((y + 1) * cnv.width + x) * 4 ;
+  const brightnessBelow = pixels[indexBelow] + pixels[indexBelow + 1] + pixels[indexBelow + 2];
 
-    // console.log ('working');
-    // frame_count++;
-    // requestAnimationFrame(draw_frame);
+  if (brightness < brightnessBelow) {
+      for (let i = 0; i < 3; i++) {
+      const temp = pixels[index + i];
+      pixels[index + i] = pixels[indexBelow + i];
+      pixels[indexBelow + i] = temp;
+        }
+      }
+    }
   }
+}
+ ctx.putImageData(imageData, 0, 0);
+}
+
+cnv.addEventListener('mousemove', sortPixels);
 
 </script>
