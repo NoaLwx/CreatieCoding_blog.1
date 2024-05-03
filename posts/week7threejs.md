@@ -12,6 +12,7 @@ This code is heavy referenced from [this](https://codepen.io/prisoner849/pen/Exp
 <div id="three_container"></div>
 
 <script type="module">
+
    import * as THREE from "/script/threejs/threee.js";
    import { OrbitControls } from "/script/threejs/OrbitControls.js";
 

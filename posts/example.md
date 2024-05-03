@@ -1,9 +1,13 @@
 ---
-title: Assignment 2
+title: Assignment 2 Prototype
 published_at: 2024-05-05
-snippet: Threejs example
+snippet: Prototype for assignment 2
 disable_html_sanitization: true
 ---
+
+Inspired by [Sabato Visconti] (https://www.sabatobox.com/pixel-sorting-experiments) 's pixelsorted photos, I decided to make my own twist on it. This time, I can manipulate the glitch myself but still shows the chaos by adverting the user's expectation of the mouse control. The pixel sorter is on a different side of the where the pointer is, making it more unexpected and more zany.
+
+~~Also this is a random image I got in my laptop, please don't question it.~~
 
 <canvas id="example"></canvas>
 
