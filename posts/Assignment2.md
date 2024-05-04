@@ -5,7 +5,15 @@ snippet: Prototype for assignment 2
 disable_html_sanitization: true
 ---
 
-Inspired by [Sabato Visconti] (https://www.sabatobox.com/pixel-sorting-experiments) 's pixelsorted photos, I decided to make my own twist on it. This time, I can manipulate the glitch myself but still shows the chaos by adverting the user's expectation of the mouse control. The pixel sorter is on a different side of the where the pointer is, making it more unexpected and more zany.
+Inspired by [Sabato Visconti](https://www.sabatobox.com/pixel-sorting-experiments)'s pixelsorted photos, I decided to make my own twist on it.
+
+Heavily referencing [Happy Coding](https://happycoding.io/tutorials/p5js/images/pixel-sorter)'s tutorial, I changed it from p5.js code to Canvas API code with the help of [this Youtube](https://youtu.be/q2YHo_9Ilyk?si=zz_N1QY188j00Tlh) tutorials and Phind.
+
+Then, I referenced the tutorial post on [Thomas's blog](https://blog.science.family/240320_web_audio_api_synths), I was able to create the audio for when the pointer is moving over the canvas.
+
+Changing a bit of variable and trial and error using the console.log function on the web browser, I made this pixel sorter destroy function.
+
+This time, I can manipulate the glitch myself but still shows the chaos by adverting the user's expectation of the mouse control. The pixel sorter is on a different side of the where the pointer is, making it more unexpected and more zany.
 
 ~~Also this is a random image I got in my laptop, please don't question it.~~
 

@@ -7,60 +7,16 @@ disable_html_sanitization: true
 
 initialise audio context so that it won't blast you with sound when you open it.
 
-<div id='resume_audio'></div>
-
-<script type="module">
-            // get and format div element
-            const div_0 = document.getElementById('resume_audio')
-            div_0.width = div_0.parentNode.scrollWidth
-            div_0.style.height = `${div_0.width * 9 / 16}px`
-            div_0.style.textAlign = 'center'
-            div_0.style.lineHeight = div_0.style.height
-            div_0.style.fontSize = '36px'
-            div_0.style.fontWeight = 'bold'
-            div_0.style.fontStyle = 'italic'
-            div_0.style.color = 'white'
-            div_0.style.backgroundColor = 'hotpink'
-            // get and suspend audio context
-            const audio_context = new AudioContext()
-            audio_context.suspend()
-            // create string with context state
-            const init_msg = `audio context is ${audio_context.state}`
-            // convert to uppercase and pass to div element
-            div_0.innerText = init_msg.toUpperCase()
-            // define an async click handler function 
-            async function init_audio() {
-
-                // wait for audio context to resume
-                await audio_context.resume()
-                // then set background colour
-                div_0.style.backgroundColor = 'limegreen'
-                // create string with new context state
-                const msg = `audio context is ${audio_context.state}`
-                // unitalicise text style
-                div_0.style.fontStyle = 'normal'
-                // convert to uppercase and pass to div element
-                div_0.innerText = msg.toUpperCase()
-            }
-
-            // pass anonymous function to the .onclick property
-            // of the div element
-            div_0.onclick = _ => {
-
-                // if audio context is not running
-                if (audio_context.state != 'running') {
-
-                    // call the async init audio function
-                    init_audio()
-                }
-            }
-</script>
-
 <canvas id="rapid_notes"></canvas>
 
 <script type="module">
 
-let audio_context;
+const cnv = document.getElementById (`rapid_notes`)
+cnv.width = cnv.parentNode.scrollWidth;
+cnv.height = cnv.width * 9 / 16;
+cnv.style.backgroundColor = 'orange';
+
+const audio_context = new AudioContext ()
 
 function init_audio() {
     if (!audio_context) {
@@ -68,32 +24,24 @@ function init_audio() {
     }
 }
 
-const cnv_0 = document.getElementById (`rapid_notes`)
-cnv_0.width = cnv_0.parentNode.scrollWidth;
-cnv_0.height = cnv_0.width * 9 / 16;
-cnv_0.style.backgroundColor = 'orange';
 
-// Initialize audio context
-init_audio();
+// array of notes for the sounds
+const notes = [ 69, 73, 76 ]
 
-    // making an array of midi notes
-    const notes = [ 62, 66, 69, 73, 74, 73, 69, 66 ]
+// declaring a mutable iterator
+let i = 0
 
-    // declaring a mutable iterator
-    let i = 0
+// declaring a mutable state value
+let running = false
 
-    // declaring a mutable state value
-    let running = false
+// declaring a mutable variable for 
+// the period of time between notes
+let period = 200
 
-    // declaring a mutable variable for 
-    // the period of time between notes
-    let period = 200
+// declaring a mutable variable for
+// the length of the note
+let len = 0
 
-    // declaring a mutable variable for
-    // the length of the note
-    let len = 0
-
-    // declaring a function that plays the next not
 function play_note (note, length) {
 
     // if the audio context is not running, resume it
@@ -103,7 +51,7 @@ function play_note (note, length) {
     const osc = audio_context.createOscillator ()
 
     // make it a triangle wave this time
-    osc.type            = 'triangle'
+    osc.type = 'triangle'
 
     // set the value using the equation 
     // for midi note to Hz
@@ -138,47 +86,66 @@ function play_note (note, length) {
     // stop the oscillator 1 second from now
     osc.stop  (now + length)
 }
+
+// declaring a function that plays the next note
 function next_note () {
-    
-        // use the iterator to select a note from 
-        // the notes array and pass it to the 
-        // play_note function along with the 
-        // len variable to specify the length of the note
-        play_note (notes[i], len)
 
-        // iterate the iterator
-        i++
+    // use the iterator to select a note from 
+    // the notes array and pass it to the 
+    // play_note function along with the 
+    // len variable to specify the length of the note
+    play_note (notes[i], len)
 
-        // if i gets too big
-        // cycle back to 0
-        i %= notes.length
-    }
+    // iterate the iterator
+    i++
 
-    // this is a recursive function
-    function note_player () {
+    // if i gets too big
+    // cycle back to 0
+    i %= notes.length
+}
 
-        // play the next note
-        next_note ()
+// this is a recursive function
+function note_player () {
 
-        // if running is true
-        // it uses setTimeout to call itself 
-        // after period milliseconds
-        if (running) setTimeout (note_player, period)
-    }
+    // play the next note
+    next_note ()
 
-    // this function handles the mouse event
-    // when the cursor enters the canvas
-    cnv_0.addEventListener('pointerenter', e => {
+    // if running is true
+    // it uses setTimeout to call itself 
+    // after period milliseconds
+    if (running) setTimeout (note_player, period)
+}
+
+// this function handles the mouse event
+// when the cursor enters the canvas
+cnv.onpointerenter = e => {
+
+    // set running to true
     running = true;
-    note_player();
-});
 
-cnv_0.addEventListener('pointermove', e => {
-    len = 5 * e.offsetX / cnv_0.width;
-    period = 20 + ((e.offsetY / cnv_0.height) ** 2) * 400;
-});
+    // initiate the recurseive note_player function
+    note_player ()
+}
 
-cnv_0.addEventListener('pointerleave', e => {
-    running = false;
-});
+// this function handles the mouse event
+// when the cursor moves over the canvas
+cnv.onpointermove = e => {
+
+    // as the cursor goes from left to right
+    // len gos from 0 to 5
+    len = 2 * e.offsetX / cnv.width
+
+    // as the cursor goes from bottom to top
+    // period goes from 420 to 20 (milliseconds)
+    period = 20 + ((e.offsetY / cnv.height) ** 2) * 40
+}
+
+// this function handles the mouse event
+// when the cursor leaves the canvas
+cnv.onpointerleave = e => {
+
+    // set running to false
+    running = false
+}
+
 </script>

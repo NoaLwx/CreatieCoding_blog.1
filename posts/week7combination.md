@@ -206,4 +206,12 @@ renderer.draw(() => {
 
 ## Why does combining ideas / libraries seem to make things more aesthetically chaotic?
 
-Each idea and library has their own rules and pattern, they have their own effective complexity rules, so when you combine them together, they might intertwine or even crash with each other, creating a chaotic aesthetic.
+Each idea and library has their own rules and pattern, they have their own effective complexity rules. Effective complexity is comprehence and non-redundancy, they are containble. Glitch is uncontainable.
+
+The more function the code has, the more complex and chaotic they are, crashing with each other, creating the error, the glitch. It's like having soup and chocolate separated from each other is fine and they taste good, but if you combine them together, it's not a good dish anymore.
+
+There for, combining ideas and library makes thing more chaotic.
+
+However, some ideas combined together might be aesthetically pleasing despite the chaos. And a lot of people love the chaotic aspect of glitch. Althought it's might be too bright, too scary or too weird, the imperfect of the error create a really attractive aesthetic.
+
+We do find the beauty in imperfection.

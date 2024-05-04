@@ -21,7 +21,7 @@ But, people have found a way to enjoy the chaos, turned the unpexpected error in
 
 ## Does glitch increase or decrease effective complexity, and why?
 
-Glitch often doesn't follow a rule. And while effective complexity although looks similar to chaos, actually does follow a rule.
+Glitch often doesn't follow a rule. And while effective complexity although looks similar to chaos, actually does follow a rule of non-randomness.
 
 Glitch decreases the effective complexity because it's no longer comprehensive. Everything about glitch is random, it advert the expectation of the user/audience, therefore, it's chaotic.
 
