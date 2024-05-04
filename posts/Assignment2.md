@@ -15,6 +15,8 @@ Changing a bit of variable and trial and error using the console.log function on
 
 This time, I can manipulate the glitch myself but still shows the chaos by adverting the user's expectation of the mouse control. The pixel sorter is on a different side of the where the pointer is, making it more unexpected and more zany.
 
+Glitch is always consider chaotic because it is not expected. Therefor I used the pixel sort function to create the zany feeling. The audio is also a nice feature on top of the glitch itself. Glitchy audio and loud sound is always considered a an error or a glitch
+
 ~~Also this is a random image I got in my laptop, please don't question it.~~
 
 <canvas id="example"></canvas>
