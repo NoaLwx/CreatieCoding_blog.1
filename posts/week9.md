@@ -1,7 +1,7 @@
 ---
 title: WEEK 9
 published_at: 2024-05-08
-snippet: qweqe
+snippet: planning for assignment 3
 disable_html_sanitization: true
 ---
 
