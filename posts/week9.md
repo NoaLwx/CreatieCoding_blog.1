@@ -5,7 +5,7 @@ snippet: planning for assignment 3
 disable_html_sanitization: true
 ---
 
-# 1 - Consider I heard TALKING IS DANGEROUS Links to an external site., by Lauren Lee McCarthy Links to an external site.. In what way could you consider this project to:
+# Consider I heard TALKING IS DANGEROUS, by Lauren Lee McCarthy. In what way could you consider this project to:
 
 ## Be an example of mycelial creativity?
 
@@ -21,20 +21,19 @@ Which is why it's interesting.
 
 # Brainstorm ideas regarding what community of practice you might engage with for your AT3 project.
 
-## Ideas
-
-### **Collage maker**
+## **Collage maker**
 
 A share platform where people can upload pictures and enter text to make a collage with each other.
 
 There is a function to take pictures or inserting it from the camera. I want to make a function where people can create their own artboard and allow other user to join in (no need to log in) so that it's not too big.
 
-The idea was from the collab/duet function on tiktok where people can include their clips with another people for reaction for to add a new ideas to it. The most noticable post of this trend has to be where a tiktok user named @marcus.dipaola posted a
-[video ](https://youtu.be/kEd-6HE005A?si=fSkuCzwMGAX2wwgP)introducing people to his girlfriend, Brittney.
+The idea was from the collab/duet function on tiktok where people can include their clips with another people for reaction for to add a new ideas to it. The most noticable post of this trend has to be where a tiktok user named @marcus.dipaola posted a videon introducing people to his girlfriend, Brittney.
 
 Instead of taking this as a normal introduction video, people imagined that Marcus held Brittney hostage and duet his video adding their limbs in to complete the full picture.
 
 ![the full pic](/w9/marcus.png)
+
+[video ](https://youtu.be/kEd-6HE005A?si=fSkuCzwMGAX2wwgP)
 
 I think it's fun for people to collab together to create a collage without any shared value, and maybe at the end of the collage, people will understand each other preference better?
 
@@ -48,12 +47,26 @@ After the assignment, I might keep this website up for other occassion like hang
 
 ### Its shared values
 
-People who likes taking picture, people who like collage. But they don't have to have the same interest to take part in this collage, they can experiment all they want, and can enjoy the result together.
+They don't have to have the same interest to take part in this collage, they can experiment all they want, and can enjoy the result together.
 
 ### Its existing repertoire
 
-aaaa
+Camp! People likes nature, the outdoor, people who likes taking picture, people who like collage.
 
 ### How you might broker some creative coding repertoire to this new context
 
-aaaa idk man
+Having people working on the same canvas is a nice way to get people to work together for the greater outcome
+
+### Constraint
+
+Making a canvas might be hard and also the wifi/data is not that good in the mountain so I don't know if we can actually connect to the server there or we have do it somewhere else.
+
+My first choice is the camping group but this might be subject to change.
+
+---
+
+## **Collab synthesiser**
+
+A website with 5 buttons. If there is more than 2 people in the server, press it at the same time, the buttons with play music. The more people the more refined the sounds is going to be, like creating an orchestra with different instruments.
+
+### Its domain
