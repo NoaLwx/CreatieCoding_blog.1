@@ -79,4 +79,4 @@ But thank you Tom for helping me with the website. I really appreciate it even t
 
 The whole class was really fun. It was painful, yes, I suffered so much, but it was fun. Painfully fun.
 
-(It's something on my mind but are you in the spectrum. I'm just curious no offense. Please dont grade this part.)
+(It's something on my mind but are you on the tism spectrum. I'm just curious no offense. Please dont grade this part.)
