@@ -56,6 +56,8 @@ As I mentioned before, we were going for a hypnosis video style ~~to brainwash y
 
 ### [Result](https://flok.cc/s/distinguished-crimson-smelt-c1549367)
 
+https://youtu.be/dV31DC44BSw
+
 # Live-coding community
 
 This experience with Charlene was really fun. I think what the live-coding community are trying to do is to see how the progress of their codes go from the blank canvas to a pleasing visual or a full music piece. It was great seeing the changes and the decision we made before reaching the end result.

@@ -1,5 +1,5 @@
 ---
-title: Assignment 2 Prototype
+title: Assignment 2 Prototype - WEEK 8
 published_at: 2024-05-05
 snippet: Prototype for assignment 2
 disable_html_sanitization: true
