@@ -1,7 +1,7 @@
 ---
 title: WEEK 12
 published_at: 2024-06-22
-snippet: uh
+snippet: A3 analysis
 disable_html_sanitization: true
 ---
 
@@ -13,13 +13,13 @@ For my planning, I wanted to create a website where I can put images in and rear
 
 At first, I thought about a fixed postion for each of the image, like the duet function of tiktok. So I carefully arrange each canvas with the grid function.
 
-[multicanvas](/w12/multicanvas.png)
+![multicanvas](/w12/multicanvas.png)
 
 But this idea is not possible because I also want to download the canvas as an image but this is multiple canvas (9 in total). Therefore I scrapted that idea and create a better solution.
 
 I made a single canvas with the function to import multiple images using arrays and then adding the function of dragging them around the canvas.
 
-[canvas](/w12/canvas.png)
+![canvas](/w12/canvas.png)
 
 This was a bit different from my initial idea but it works well too.
 
@@ -31,15 +31,15 @@ At first, doing the input function and the dragging function is easy because I w
 
 However, when it get to the sockets, everything was a pain.
 
-[bug](/w12/bug.png)
+![bug](/w12/bug.png)
 
 Because I want the images data to store in a server and then put back onto the canvas, I have to use deno kv. Importing it in was fine, but the images data is too big, so I had to resize all of them, which pixelated the images a lot.
 
-[getting data](/w12/gettingdata.png)
+![getting data](/w12/gettingdata.png)
 
 I actually wanted to replicate those online drawing website where they have the position data sent across the server. However, I was too tired to do that but this actually create a fun idea where people can create different outcomes. Well, if it works, it works.
 
-[socket](/w12/socket.png)
+![socket](/w12/socket.png)
 
 This process took me 2 weeks and I still amazed that it does work out. I was so close to give up multiple times but I am glad I didn't.
 
@@ -51,7 +51,7 @@ However, due to the shortage of time, I couldn't make the server connecting toge
 
 It actually work very well and I got my highschool friends to test it out for me and we had a session where we arranged the images we put in.
 
-[finish](/w12/finish.png)
+![finish](/w12/finish.png)
 
 # Evaluation
 
